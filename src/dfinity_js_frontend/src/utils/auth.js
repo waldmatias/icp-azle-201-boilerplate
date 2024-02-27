@@ -1,7 +1,7 @@
 import { AuthClient } from "@dfinity/auth-client";
 
-const IDENTITY_CANISTER_ID = "be2us-64aaa-aaaaa-qaabq-cai";
-const IDENTITY_PROVIDER_URL = `http://localhost:4943/`;
+const IDENTITY_CANISTER_ID = process.env.IDENTITY_CANISTER_ID;
+const IDENTITY_PROVIDER_URL = process.env.IDENTITY_PROVIDER_URL;
 const IDENTITY_PROVIDER_ENDPOINT = `#authorize`;
 const IDENTITY_PROVIDER = `${IDENTITY_PROVIDER_URL}?canisterId=${IDENTITY_CANISTER_ID}${IDENTITY_PROVIDER_ENDPOINT}`;
 const MAX_TTL = 7 * 24 * 60 * 60 * 1000 * 1000 * 1000;

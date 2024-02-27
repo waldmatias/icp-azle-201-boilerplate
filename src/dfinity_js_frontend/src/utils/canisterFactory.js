@@ -4,12 +4,10 @@ import { idlFactory as marketPlaceIdl } from "../../../declarations/dfinity_js_b
 import { idlFactory as ledgerIdl } from "../../../declarations/ledger_canister/ledger_canister.did.js";
 
 // Canister IDs
-const MARKETPLACE_CANISTER_ID = "bkyz2-fmaaa-aaaaa-qaaaq-cai";
-const LEDGER_CANISTER_ID = "ryjl3-tyaaa-aaaaa-aaaba-cai";
+const MARKETPLACE_CANISTER_ID = process.env.DFINITY_JS_BACKEND_CANISTER_ID;
+const LEDGER_CANISTER_ID = process.env.LEDGER_CANISTER_ID;
 // Provider config
-const PROVIDER_HOST = "localhost";
-const PROVIDER_PORT = "4943";
-const PROVIDER = `http://${PROVIDER_HOST}:${PROVIDER_PORT}`;
+const AGENT_PROVIDER_URL = process.env.AGENT_PROVIDER_URL; //`${PROVIDER_HOST}:${PROVIDER_PORT}`;
 
 export async function getMarketplaceCanister() {
     return await getCanister(MARKETPLACE_CANISTER_ID, marketPlaceIdl);
@@ -22,7 +20,7 @@ export async function getLedgerCanister() {
 async function getCanister(canisterId, idl) {
     const authClient = window.auth.client; 
     const agent = new HttpAgent({
-        host: PROVIDER, 
+        host: AGENT_PROVIDER_URL, 
         identity: authClient.getIdentity()
     });
     

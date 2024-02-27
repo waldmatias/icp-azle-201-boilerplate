@@ -1,5 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom";
+//import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
+
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { initializeContract } from "./utils/icp";
@@ -9,18 +11,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 window.renderICPromise = initializeContract()
   .then(() => {
-    ReactDOM.render(
+    const container = document.getElementById('root');
+    const root = createRoot(container);
+
+    root.render(
       <React.StrictMode>
         <App />
-      </React.StrictMode>,
-      document.getElementById("root")
+      </React.StrictMode>
     );
   }).catch(console.error);
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById("root")
-// );
-// render(<App />, document.getElementById("root"));
+
 reportWebVitals();
