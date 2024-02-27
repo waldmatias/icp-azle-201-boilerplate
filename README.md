@@ -89,9 +89,13 @@ To check which linux distro you're running you can use `lsb_release -a`.
 
 ## Bug-Fixes
 - Better error handling when adding new products.
-- Fixed condition for Notification popup when an error occured adding a product. 
+- Better error handling when purchasing products.
+- Correct use of BigInt and e8s (conversions).
+- Fixed UI/UX for Wallet balances (updates, formatting).
+- Fixex UI/UX for Prices (decimal handling)
 
-## Improvements
+
+## Improvements that could be done down the road (.vnext)
 ### Multi-token support (wallet and product listings)
 
 Show all available tokens in Wallet. 
