@@ -36,7 +36,14 @@
         "dist/dfinity_js_frontend/"
       ],
       "type": "assets",
-      "gzip": true
+      "gzip": true, 
+      "env": [
+        "AGENT_PROVIDER_URL",
+        "DFINITY_JS_BACKEND_CANISTER_ID",
+        "LEDGER_CANISTER_ID", 
+        "IDENTITY_CANISTER_ID",
+        "IDENTITY_PROVIDER_URL"
+      ]
     }
   },
   "defaults": {
